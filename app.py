@@ -32,14 +32,14 @@ def get_result():
         number_quantity = max(number_start, number_finish)-1
     
     list_numbers = []
-    def get_random():
+    #def get_random():
         #global number_start
         #global number_finish
         #global number_quantity
-        numbers = random.sample(range(number_start, number_finish + 1), k=number_quantity)
-        list_numbers.extend(numbers)
-        numbers_in_line = ', '.join(map(str, numbers))
-        return numbers_in_line
+    numbers = random.sample(range(number_start, number_finish + 1), k=number_quantity)
+    list_numbers.extend(numbers)
+    numbers_in_line = ', '.join(map(str, numbers))
+    #return numbers_in_line
 
     def get_product():
         global product
@@ -60,7 +60,7 @@ def get_result():
         sorted_list = ', '.join(map(str, sorted_list))
     else:
         sorted_list = error
-    return render_template('result.html', name=user_name, start=number_start, finish=number_finish, quantity=number_quantity, random_num=get_random(), product_number=get_product(), min_number=min_num, sorted_number=sorted_list)
+    return render_template('result.html', name=user_name, start=number_start, finish=number_finish, quantity=number_quantity, random_num=numbers_in_line, product_number=get_product(), min_number=min_num, sorted_number=sorted_list)
 
 
 if __name__ == '__main__':
