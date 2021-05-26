@@ -17,7 +17,7 @@ def index():
     return render_template('index.html')
     
     
-@app.route('/success', methods = ['GET', 'POST'])
+@app.route('/main_form', methods = ['GET', 'POST'])
 def main_form():
     if request.method == 'POST':
         #user = request.form.get('user_name')
