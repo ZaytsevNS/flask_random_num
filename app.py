@@ -16,7 +16,7 @@ def success(name, start_number, finish_number, quantity_number, random_number, p
     sorted_number = sorted_number, info_platform = info_platform, info_sys_description = info_sys_description, info_python_version = info_python_version, info_username_unix = info_username_unix)
 
 
-@app.route('/main_form', methods = ['POST'])
+@app.route('/index', methods = ['POST'])
 def main_form():
     if request.method == 'POST':
         #user = request.form.get('user_name')
