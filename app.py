@@ -38,7 +38,8 @@ def get_result():
         #global number_quantity
         numbers = random.sample(range(number_start, number_finish + 1), k=number_quantity)
         list_numbers.extend(numbers)
-        return numbers
+        numbers_in_line = ', '.join(map(str, numbers))
+        return numbers_in_line
 
     def get_product():
         global product
