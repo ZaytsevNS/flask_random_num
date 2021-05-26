@@ -11,7 +11,11 @@ def index():
     
 @app.route('/get_result', methods=['GET', 'POST'])
 def get_result():
-    return render_template('result.html', name = request.form['user_name'], start_number = request.form['number_start'], finish_number = request.form['number_finish'], quantity_number = request.form['number_quantity'])
+   user_name = request.form['user_name']
+   number_start = request.form['number_start']
+   number_finish = request.form['number_finish']
+   number_quantity = request.form['number_quantity'])
+   return render_template('result.html', user_name = user_name, number_start = number_start, number_finish = number_finish, number_quantity = number_quantity)
 
 if __name__ == '__main__':
     app.run()
