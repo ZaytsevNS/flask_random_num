@@ -14,7 +14,7 @@ def get_result():
    user_name = request.form['user_name']
    number_start = request.form['number_start']
    number_finish = request.form['number_finish']
-   number_quantity = request.form['number_quantity'])
+   number_quantity = request.form['number_quantity']
    return render_template('result.html', name = user_name, start = number_start, finish = number_finish, quantity = number_quantity)
 
 if __name__ == '__main__':
