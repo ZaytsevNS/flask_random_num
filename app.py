@@ -38,8 +38,7 @@ def get_result():
         #global number_quantity
         numbers = random.sample(range(number_start, number_finish + 1), k=number_quantity)
         list_numbers.extend(numbers)
-        #random_number = ', '.join(map(str, numbers))
-        return ', '.join(map(str, numbers))
+        return numbers
 
     def get_product():
         global product
