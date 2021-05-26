@@ -16,7 +16,7 @@ def index():
     return render_template('index.html')
     
     
-@app.route('/success_request/', methods = ['GET', 'POST'])
+@app.route('/success_request', methods = ['GET', 'POST'])
 def success_request():
     global start
     global finish
