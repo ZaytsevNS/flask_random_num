@@ -5,18 +5,14 @@ import sys
 import os
 
 app = Flask(__name__)
-
-
-
-    
-    
+   
 @app.route('/success/<name>&<start_number>&<finish_number>&<quantity_number>&<random_number>&<product_number>&<min_number>&<sorted_number>&<info_platform>&<info_sys_description>&<info_python_version>&<info_username_unix>')
 def success(name, start_number, finish_number, quantity_number, random_number, product_number, min_number, sorted_number, info_platform, info_sys_description, info_python_version, info_username_unix):
     return render_template('success_form.html', name = name, start_number = start_number, finish_number = finish_number, quantity_number = quantity_number, random_number = random_number, product_number = product_number, min_number = min_number, \
     sorted_number = sorted_number, info_platform = info_platform, info_sys_description = info_sys_description, info_python_version = info_python_version, info_username_unix = info_username_unix)
 
 
-@app.route('/index', methods = ['POST'])
+@app.route('/main_form', methods = ['GET', 'POST'])
 def main_form():
     if request.method == 'POST':
         #user = request.form.get('user_name')
@@ -108,8 +104,8 @@ def main_form():
     #else:
         #user = request.args.get('user_name')
         #return redirect(url_for('success', name = user))
-@app.route('/')
-#@app.route('/index')
+
+@app.route('/', methods=['GET', 'POST'])
 def index():
     return render_template('index.html')
 
