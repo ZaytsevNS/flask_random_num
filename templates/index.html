@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Работа с рандомными числами</title>
+<link rel="stylesheet" href="../static/style/style_index.css">
+<link rel="shortcut icon" href="../static/img/favicon.ico" type="image/x-icon">
+</head>
+<body>
+	<div id="form">
+    <form action="http://localhost:8000/index" method = "POST">
+		<p><label><strong>Введите ваше имя: </strong><input type="text" name="user_name" size="30" maxlength="30" placeholder="Иван Петров" required /></label></p>
+		<p>Cгенерировать случайное число из диапазона:</p>
+		<p><label><strong>от: </strong><input type="number" name="number_start" value="1" required /></label>
+		<label><strong>до: </strong><input type="number" name="number_finish" value="99" required /></label>
+		<label><strong>кол-во: </strong><input type="number" name="number_quantity" min="1" value="1" required /></label></p>
+		<p>Выберите необходимые действия*:</p>
+		<p><label><input type="checkbox" name="value_one" />Найти произведение чисел, взятых по абсолютной величине.</label><br>
+		<label><input type="checkbox" name="value_two" />Найти минимальное число среди чисел, взятых по абсолютной величине.</label><br>
+		<label><input type="checkbox" name="value_three" />Выполнить сортировку чисел, взятых по абсолютной величине.</label><br></p>
+        <p><input type="submit" value="Показать результаты" />
+		<input type="reset" value="Очистить форму" /></p>
+    </form>
+	</div>
+</body>
+</html>
