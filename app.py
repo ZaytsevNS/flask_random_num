@@ -12,7 +12,7 @@ app = Flask(__name__)
     
 @app.route('/success/<name>&<start_number>&<finish_number>&<quantity_number>&<random_number>&<product_number>&<min_number>&<sorted_number>&<info_platform>&<info_sys_description>&<info_python_version>&<info_username_unix>')
 def success(name, start_number, finish_number, quantity_number, random_number, product_number, min_number, sorted_number, info_platform, info_sys_description, info_python_version, info_username_unix):
-    return render_template('success_form.html', name = name, start_number = start_number, finish_number = finish_number, quantity_number = quantity_number, random_number = random_number, product_number = product_number, min_number = min_number, \
+    return render_template('success', name = name, start_number = start_number, finish_number = finish_number, quantity_number = quantity_number, random_number = random_number, product_number = product_number, min_number = min_number, \
     sorted_number = sorted_number, info_platform = info_platform, info_sys_description = info_sys_description, info_python_version = info_python_version, info_username_unix = info_username_unix)
 
 
