@@ -30,19 +30,21 @@ def get_result():
         number_start, number_finish = number_finish, number_start
     if number_quantity >= abs(number_start - number_finish):
         number_quantity = max(number_start, number_finish)-1
-        
+    
+    list_numbers = []
     def get_random():
-        global number_start
-        global number_finish
-        global number_quantity
+        #global number_start
+        #global number_finish
+        #global number_quantity
         numbers = random.sample(range(number_start, number_finish + 1), k=number_quantity)
-        random_number = ', '.join(map(str, numbers))
-        return random_number
+        list_numbers.extend(numbers)
+        #random_number = ', '.join(map(str, numbers))
+        return ', '.join(map(str, numbers))
 
     def get_product():
         global product
         if request.form.get('value_one'):
-            for i in numbers:
+            for i in list_numbers:
                 product *= abs(i)
             return product
         else:
