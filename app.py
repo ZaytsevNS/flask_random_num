@@ -14,6 +14,9 @@ def index():
 
 @app.route('/get_result', methods=['GET', 'POST'])
 def get_result():
+    global number_start
+    global number_finish
+    global number_quantity
     user_name = request.form['user_name']
     number_start = int(request.form['number_start'])
     number_finish = int(request.form['number_finish'])
@@ -27,8 +30,14 @@ def get_result():
         number_start, number_finish = number_finish, number_start
     if number_quantity >= abs(number_start - number_finish):
         number_quantity = max(number_start, number_finish)-1
-    numbers = random.sample(range(number_start, number_finish + 1), k=number_quantity)
-    random_number = ', '.join(map(str, numbers))
+        
+    def get_random():
+        global number_start
+        global number_finish
+        global number_quantity
+        numbers = random.sample(range(number_start, number_finish + 1), k=number_quantity)
+        random_number = ', '.join(map(str, numbers))
+        return random_number
 
     def get_product():
         global product
@@ -49,7 +58,7 @@ def get_result():
         sorted_list = ', '.join(map(str, sorted_list))
     else:
         sorted_list = error
-    return render_template('result.html', name=user_name, start=number_start, finish=number_finish, quantity=number_quantity, random_num=random_number, product_number=get_product(), min_number=min_num, sorted_number=sorted_list)
+    return render_template('result.html', name=user_name, start=number_start, finish=number_finish, quantity=number_quantity, random_num=get_random(), product_number=get_product(), min_number=min_num, sorted_number=sorted_list)
 
 
 if __name__ == '__main__':
