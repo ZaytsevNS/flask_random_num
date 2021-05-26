@@ -101,7 +101,7 @@ def main_form():
         #user = request.args.get('user_name')
         #return redirect(url_for('success', name = user))
 
-@app.route('/index')
+@app.route('/')
 def index():
     return render_template('index.html')
 
