@@ -22,7 +22,7 @@ def get_result():
     number_finish = int(request.form['number_finish'])
     number_quantity = int(request.form['number_quantity'])
     error = Markup('<br>вы не выбрали данную опцию!')
-    info_sys_platform = sys.platform
+    #info_sys_platform = sys.platform
     if number_start > number_finish:
         number_start, number_finish = number_finish, number_start
     if number_quantity >= abs(number_start - number_finish):
@@ -60,8 +60,8 @@ def get_result():
         else:
             return error
     
-    return render_template('result.html', name=user_name, start=number_start, finish=number_finish, quantity=number_quantity, random_num=get_random(), product_number=get_product(), min_number=get_abs_minimum(), sorted_number=get_sorted_numbers(), info_platform = info_sys_platform)
+    return render_template('result.html', name=user_name, start=number_start, finish=number_finish, quantity=number_quantity, random_num=get_random(), product_number=get_product(), min_number=get_abs_minimum(), sorted_number=get_sorted_numbers(), info_platform = sys.platform, info_sys_description = sys.version_info, info_python_version = sys.version)
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(port=8000, debug=False)
