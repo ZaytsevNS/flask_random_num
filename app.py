@@ -99,13 +99,14 @@ def main_form():
             #return list_sys_info
             
             
-    return redirect(url_for('success', name = user, start_number = start, finish_number = finish, quantity_number = quantity, random_number = get_random(), product_number = get_abs_product(),\
-    min_number = get_abs_min_number(), sorted_number = get_abs_sort(), info_platform = sys_platform, info_sys_description = sys_description, info_python_version = python_version, info_username_unix = username_unix))
+        return redirect(url_for('success', name = user, start_number = start, finish_number = finish, quantity_number = quantity, random_number = get_random(), product_number = get_abs_product(),\
+        min_number = get_abs_min_number(), sorted_number = get_abs_sort(), info_platform = sys_platform, info_sys_description = sys_description, info_python_version = python_version, info_username_unix = username_unix))
     #else:
         #user = request.args.get('user_name')
         #return redirect(url_for('success', name = user))
 
 @app.route('/', methods=['GET', 'POST'])
+@app.route('/index', methods=['GET', 'POST'])
 def index():
     return render_template('index.html')
 
