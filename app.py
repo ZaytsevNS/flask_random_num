@@ -12,20 +12,24 @@ app = Flask(__name__)
     
 @app.route('/success/<name>&<start_number>&<finish_number>&<quantity_number>&<random_number>&<product_number>&<min_number>&<sorted_number>&<info_platform>&<info_sys_description>&<info_python_version>&<info_username_unix>')
 def success(name, start_number, finish_number, quantity_number, random_number, product_number, min_number, sorted_number, info_platform, info_sys_description, info_python_version, info_username_unix):
-    return render_template('success', name = name, start_number = start_number, finish_number = finish_number, quantity_number = quantity_number, random_number = random_number, product_number = product_number, min_number = min_number, \
+    return render_template('success_form.html', name = name, start_number = start_number, finish_number = finish_number, quantity_number = quantity_number, random_number = random_number, product_number = product_number, min_number = min_number, \
     sorted_number = sorted_number, info_platform = info_platform, info_sys_description = info_sys_description, info_python_version = info_python_version, info_username_unix = info_username_unix)
 
 
 @app.route('/index', methods = ['POST'])
 def main_form():
     if request.method == 'POST':
-        user = request.form['user_name']
+        user = request.form.get('user_name')
+        #user = request.form['user_name']
         global start
         global finish
         global quantity
-        start = request.form['number_start']
-        finish = request.form['number_finish']
-        quantity = request.form['number_quantity']
+        start = request.form.get('number_start')
+        finish = request.form.get('number_finish')
+        quantity = request.form.get('number_quantity')
+        #start = request.form['number_start']
+        #finish = request.form['number_finish']
+        #quantity = request.form['number_quantity']
         error = Markup('<br>вы не выбрали данную опцию!')
         sys_platform = sys.platform
         sys_description = sys.version_info
@@ -105,7 +109,6 @@ def main_form():
         #user = request.args.get('user_name')
         #return redirect(url_for('success', name = user))
 @app.route('/')
-@app.route('/index')
 def index():
     return render_template('index.html')
 
