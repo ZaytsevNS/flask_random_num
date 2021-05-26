@@ -16,8 +16,8 @@ def index():
     return render_template('index.html')
     
     
-@app.route('/success_request', methods = ['GET', 'POST'])
-def success_request():
+@app.route('/hello', methods = ['GET', 'POST'])
+def hello():
     global start
     global finish
     global quantity
@@ -98,7 +98,7 @@ def success_request():
             #return list_sys_info
             
             
-    return render_template('success_form.html', name = user, start_number = start, finish_number = finish, quantity_number = quantity, random_number = get_random(), product_number = get_abs_product(),\
+    return render_template('form.html', name = user, start_number = start, finish_number = finish, quantity_number = quantity, random_number = get_random(), product_number = get_abs_product(),\
     min_number = get_abs_min_number(), sorted_number = get_abs_sort(), info_platform = sys_platform, info_sys_description = sys_description, info_python_version = python_version, info_username_unix = username_unix)
 
 
