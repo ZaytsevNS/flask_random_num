@@ -6,8 +6,8 @@
 <link rel="stylesheet" href="../static/style/style_form.css">
 <link rel="shortcut icon" href="../static/img/favicon.ico" type="image/x-icon">
 <div id='answer'>
-    <p class='greet'>Привет, <span class='name'><strong><i>{{ user_name.title() }}!</i></strong></span></p><br>
-	<p>Случайные {{ number_quantity }} чисел из диапазона [{{ number_start }}, {{ number_finish }}]: <strong>{{ random_number }}</strong></p>
+    <p class='greet'>Привет, <span class='name'><strong><i>{{ name.title() }}!</i></strong></span></p><br>
+	<p>Случайные {{ quantity }} чисел из диапазона [{{ start }}, {{ finish }}]: <strong>{{ random_number }}</strong></p>
 	<p class="{{'warn' if product_number == '<br>вы не выбрали данную опцию!' else 'usual'}}">Произведение чисел, взятых по абсолютной величине: <strong>{{ product_number|safe }}</strong></p>
 	<p class="{{'warn' if min_number == '<br>вы не выбрали данную опцию!' else 'usual'}}">Минимальное число среди чисел, взятых по абсолютной величине: <strong>{{ min_number|safe }}</strong></p>
 	<p class="{{'warn' if sorted_number == '<br>вы не выбрали данную опцию!' else 'usual'}}">Сортировка чисел, взятых по абсолютной величине: <strong>{{ sorted_number|safe }}</strong></p>
