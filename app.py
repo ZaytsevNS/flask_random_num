@@ -60,7 +60,7 @@ def get_result():
         else:
             return error
     
-    return render_template('result.html', name=user_name, start=number_start, finish=number_finish, quantity=number_quantity, random_num=get_random(), product_number=get_product(), min_number=get_abs_minimum(), sorted_number=get_sorted_numbers(), info_platform = sys.platform, info_sys_description = sys.version_info, info_python_version = sys.version)
+    return render_template('result.html', name=user_name, start=number_start, finish=number_finish, quantity=number_quantity, random_num=get_random(), product_number=get_product(), min_number=get_abs_minimum(), sorted_number=get_sorted_numbers(), info_platform = sys.platform, info_sys_description = sys.version_info, info_python_version = sys.version, info_username_unix = os.environ.get('USERNAME'))
 
 
 if __name__ == '__main__':
