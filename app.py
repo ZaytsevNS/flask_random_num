@@ -43,8 +43,7 @@ def get_result():
         sorted_list = ', '.join(map(str, sorted_list))
     else:
         sorted_list = error
-    return render_template('result.html', name=user_name, start=number_start, finish=number_finish, quantity=number_quantity, random_num=random_number, product_number=product,
-                           min_number=min_num, sorted_number=sorted_list, info_platform=sys.platform, info_sys_description=sys.version_info, info_python_version=sys.version, info_username_unix=os.getlogin())
+    return render_template('result.html', name=user_name, start=number_start, finish=number_finish, quantity=number_quantity, random_num=random_number, product_number=product, min_number=min_num, sorted_number=sorted_list)
 
 
 if __name__ == '__main__':
