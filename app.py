@@ -22,7 +22,7 @@ def get_result():
     number_finish = int(request.form['number_finish'])
     number_quantity = int(request.form['number_quantity'])
     error = Markup('<br>вы не выбрали данную опцию!')
-    #info_sys_platform = sys.platform
+
     if number_start > number_finish:
         number_start, number_finish = number_finish, number_start
     if number_quantity >= abs(number_start - number_finish):
