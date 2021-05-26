@@ -19,6 +19,7 @@ def get_result():
     number_finish = int(request.form['number_finish'])
     number_quantity = int(request.form['number_quantity'])
     error = Markup('<br>вы не выбрали данную опцию!')
+    global product
     product = 1
     min_num = 0
     sorted_list = []
@@ -29,11 +30,16 @@ def get_result():
     numbers = random.sample(
         range(number_start, number_finish + 1), k=number_quantity)
     random_number = ', '.join(map(str, numbers))
-    if request.form.get('value_one'):
-        for i in numbers:
-            product *= abs(i)
-    else:
-        product = error
+
+    def get_product():
+        global product
+        if request.form.get('value_one'):
+            for i in numbers:
+                product *= abs(i)
+            return product
+        else:
+            product = error
+        return product
     if request.form.get('value_two'):
         min_num = min([abs(i) for i in numbers])
     else:
@@ -43,8 +49,9 @@ def get_result():
         sorted_list = ', '.join(map(str, sorted_list))
     else:
         sorted_list = error
-    return render_template('result.html', name=user_name, start=number_start, finish=number_finish, quantity=number_quantity, random_num=random_number, product_number=product, min_number=min_num, sorted_number=sorted_list)
+    return render_template('result.html', name=user_name, start=number_start, finish=number_finish, quantity=number_quantity, random_num=random_number, product_number=get_product(),
+                           min_number=min_num, sorted_number=sorted_list)
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
