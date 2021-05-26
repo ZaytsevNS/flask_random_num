@@ -19,17 +19,17 @@ def success(name, start_number, finish_number, quantity_number, random_number, p
 @app.route('/index', methods = ['POST'])
 def main_form():
     if request.method == 'POST':
-        user = request.form.get('user_name')
-        #user = request.form['user_name']
+        #user = request.form.get('user_name')
+        user = request.form['user_name']
         global start
         global finish
         global quantity
-        start = request.form.get('number_start')
-        finish = request.form.get('number_finish')
-        quantity = request.form.get('number_quantity')
-        #start = request.form['number_start']
-        #finish = request.form['number_finish']
-        #quantity = request.form['number_quantity']
+        #start = request.form.get('number_start')
+        #finish = request.form.get('number_finish')
+        #quantity = request.form.get('number_quantity')
+        start = request.form['number_start']
+        finish = request.form['number_finish']
+        quantity = request.form['number_quantity']
         error = Markup('<br>вы не выбрали данную опцию!')
         sys_platform = sys.platform
         sys_description = sys.version_info
