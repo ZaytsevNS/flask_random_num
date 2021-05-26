@@ -8,7 +8,7 @@
 </head>
 <body>
 	<div id="form">
-    <form action="{{ url_for('success_request') }}" method="POST">
+	<form method="post" action="{{ url_for('success_request') }}">
 		<p><label><strong>Введите ваше имя: </strong><input type="text" name="user_name" size="30" maxlength="30" placeholder="Иван Петров" required /></label></p>
 		<p>Cгенерировать случайное число из диапазона:</p>
 		<p><label><strong>от: </strong><input type="number" name="number_start" value="1" required /></label>
@@ -18,7 +18,7 @@
 		<p><label><input type="checkbox" name="value_one" />Найти произведение чисел, взятых по абсолютной величине.</label><br>
 		<label><input type="checkbox" name="value_two" />Найти минимальное число среди чисел, взятых по абсолютной величине.</label><br>
 		<label><input type="checkbox" name="value_three" />Выполнить сортировку чисел, взятых по абсолютной величине.</label><br></p>
-        <p><input type="submit" value="Показать результаты" />
+        <p><button>Показать результаты</button></p>
 		<input type="reset" value="Очистить форму" /></p>
     </form>
 	</div>
