@@ -29,7 +29,7 @@ This web app works with random numbers and you can:
   ```bash 
   pip install -r requirements.txt
   ```
-6) Go to your web browser and type in the search field: **http://localhost:8000/**
+6) Run app.py and go to your web browser and type in the search field: **http://localhost:8000/**
 7) Enter your name, select the required numerical values and options and click to button 'Показать результаты'.
 If you want to clear the form click to button 'Очистить форму'.
 8) When you’re done working on a project deactivate virtual environment: 
