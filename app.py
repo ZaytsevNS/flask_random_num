@@ -1,4 +1,4 @@
-from flask import Flask, redirect, url_for, request, render_template, Markup
+from flask import Flask, request, render_template, Markup
 import random
 import sys
 import os
@@ -22,7 +22,7 @@ def get_result():
     number_finish = int(request.form['number_finish'])
     number_quantity = int(request.form['number_quantity'])
     error = Markup('<br>вы не выбрали данную опцию!')
-
+    
     if number_start > number_finish:
         number_start, number_finish = number_finish, number_start
     if number_quantity >= abs(number_start - number_finish):
@@ -30,14 +30,21 @@ def get_result():
     
     list_numbers = []
     def get_random():
-        numbers = random.sample(range(number_start, number_finish + 1), k=number_quantity)
-        list_numbers.extend(numbers)
-        numbers_in_line = ', '.join(map(str, numbers))
-        return numbers_in_line
+        if request.form.get('remove_repeats'):
+            numbers = random.sample(range(number_start, number_finish + 1), k=number_quantity)
+            list_numbers.extend(numbers)
+            numbers_in_line = ', '.join(map(str, numbers))
+            return numbers_in_line
+        else:
+            numbers = [random.randint(number_start, number_finish + 1) for i in range(number_quantity)]
+            list_numbers.extend(numbers)
+            numbers_in_line = ', '.join(map(str, numbers))
+            return numbers_in_line
+            
 
     def get_product():
         product = 1
-        if request.form.get('value_one'):
+        if request.form.get('get_product'):
             for i in list_numbers:
                 product *= abs(i)
             return product
@@ -45,7 +52,7 @@ def get_result():
             return error
         
     def get_abs_minimum():
-        if request.form.get('value_two'):
+        if request.form.get('get_abs_minimum'):
             min_num = min([abs(i) for i in list_numbers])
             return min_num
         else:
@@ -53,7 +60,7 @@ def get_result():
     
     def get_sorted_numbers():
         sorted_list = []
-        if request.form.get('value_three'):
+        if request.form.get('get_sorted_numbers'):
             sorted_list.extend(sorted([abs(i) for i in list_numbers]))
             sorted_list = ', '.join(map(str, sorted_list))
             return sorted_list
@@ -64,4 +71,4 @@ def get_result():
 
 
 if __name__ == '__main__':
-    app.run(port=8000, debug=False)
+    app.run(port=8000, debug=True)

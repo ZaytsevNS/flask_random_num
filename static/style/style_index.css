@@ -3,14 +3,18 @@ html, body {
 	margin: 0 auto;
 	background: #FFFFE0;
 }
+
 p{
 	color:#000000;
 	font: 18px "Fira Sans", sans-serif;
 }
 #faq{
-	font: 14px "Fira Sans", sans-serif;
+	font: 15px "Fira Sans", sans-serif;
+	font-style: italic;
 	text-align: right;
 }
+
+
 #form{
 	width: 650px;
 	padding: 10px;
