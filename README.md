@@ -14,7 +14,13 @@ This web app works with random numbers and you can:
   - ```bash
   pip install virtualenv
   ```
-  - ```bashvirtualenv venv --python=<YOUR PYTHON VERSION>```. For example: ```bash virtualenv venv --python=3.7.6```
+  - ```bash
+  virtualenv venv --python=<YOUR PYTHON VERSION>
+  ``` 
+  For example: 
+  ```bash 
+  virtualenv venv --python=3.7.6
+  ```
 4) Activate virtual environment: ```bash venv/Scripts/activate```
 5) Install python packages into a virtual environment: ```bash pip install -r requirements.txt```
 5) Go to your web browser and type in the search field: **http://localhost:8000/**
