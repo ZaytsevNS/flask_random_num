@@ -11,10 +11,10 @@ This web app works with random numbers and you can:
 1) Create a project directory.
 2) Change into the project directory.
 3) Create virtual environment: 
-  - ```bash
+  ```bash
   pip install virtualenv
   ```
-  - ```bash
+  ```bash
   virtualenv venv --python=<YOUR PYTHON VERSION>
   ``` 
   For example: 
