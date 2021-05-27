@@ -11,14 +11,14 @@ This web app works with random numbers and you can:
 1) Create a project directory.
 2) Change into the project directory.
 3) Create virtual environment: 
-  pip install virtualenv
-  virtualenv venv --python=<YOUR PYTHON VERSION>. For example: virtualenv venv --python=3.7.6
-4) Activate virtual environment: venv/Scripts/activate
-5) Install python packages into a virtual environment: pip install -r requirements.txt
+  - ```bash pip install virtualenv```
+  - ```bash virtualenv venv --python=<YOUR PYTHON VERSION>```. For example: ```bash virtualenv venv --python=3.7.6```
+4) Activate virtual environment: ```bash venv/Scripts/activate```
+5) Install python packages into a virtual environment: ```bash pip install -r requirements.txt```
 5) Go to your web browser and type in the search field: **http://localhost:8000/**
 6) Enter your name, select the required numerical values and options and click to button 'Показать результаты'.
 If you want to clear the form click to button 'Очистить форму'.
-7) When you’re done working on a project deactivate virtual environment: venv/Scripts/deactivate
+7) When you’re done working on a project deactivate virtual environment: ```bash venv/Scripts/deactivate```
   
 [Run this web app on heroku](https://rndnum.herokuapp.com/)
 
