@@ -22,7 +22,8 @@ This web app works with random numbers and you can:
   virtualenv venv --python=3.7.6
   ```
 4) Activate virtual environment: 
-  ```bash venv/Scripts/activate
+  ```bash 
+  venv/Scripts/activate
   ```
 6) Install python packages into a virtual environment:
   ```bash 
