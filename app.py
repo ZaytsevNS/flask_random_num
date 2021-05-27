@@ -1,4 +1,4 @@
-from flask import Flask, redirect, url_for, request, render_template, Markup
+from flask import Flask, request, render_template, Markup
 import random
 import sys
 import os
