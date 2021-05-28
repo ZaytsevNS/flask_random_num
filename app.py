@@ -51,10 +51,10 @@ def get_result():
         else:
             return error
         
-    def get_abs_minimum():
-        if request.form.get('get_abs_minimum'):
-            min_num = min([abs(i) for i in list_numbers])
-            return min_num
+    def get_abs_max_and_min():
+        if request.form.get('get_abs_max_and_min'):
+            min_num, max_num = min([abs(i) for i in list_numbers]), max([abs(i) for i in list_numbers])
+            return f'min = {min_num}, max = {max_num}'
         else:
             return error
     
@@ -67,7 +67,7 @@ def get_result():
         else:
             return error
     
-    return render_template('result.html', name=user_name, start=number_start, finish=number_finish, quantity=number_quantity, random_num=get_random(), product_number=get_product(), min_number=get_abs_minimum(), sorted_number=get_sorted_numbers(), info_platform = sys.platform, info_sys_description = sys.version_info, info_python_version = sys.version, info_username_unix = os.environ.get('USERNAME'))
+    return render_template('result.html', name=user_name, start=number_start, finish=number_finish, quantity=number_quantity, random_num=get_random(), product_number=get_product(), min_and_max_number=get_abs_max_and_min(), sorted_number=get_sorted_numbers(), info_platform = sys.platform, info_sys_description = sys.version_info, info_python_version = sys.version, info_username_unix = os.environ.get('USERNAME'))
 
 
 if __name__ == '__main__':
