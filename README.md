@@ -4,7 +4,7 @@ This web app works with random numbers and you can:
 1) generate some random numbers from N to M;
 2) choose the number of such numbers;
 3) find the product of the numbers taken by absolute value;
-4) find the minimum number among the numbers taken by absolute value;
+4) find the maximum and minimum number among the numbers taken by absolute value;
 5) perform sorting of numbers taken by absolute value.
 
 ## How to run this app?
