@@ -1,46 +1,51 @@
 <!DOCTYPE HTML>
 <html>
-<head>
-<meta charset='utf-8'>
-<title>{% block title %}{% endblock %} Обработанные данные</title>
-<link rel="stylesheet" href="../static/style/style_form.css">
-<link rel="shortcut icon" href="../static/img/favicon.ico" type="image/x-icon">
-<div id='answer'>
-    <p class='greet'>Привет, <span class='name'><strong><i>{{ name.title() }}!</i></strong></span></p><br>
-	<p>Случайные {{ quantity }} чисел из диапазона [{{ start }}, {{ finish }}]: <strong>{{ random_num }}</strong></p>
-	<p class="{{'warn' if product_number == '<br>вы не выбрали данную опцию!' else 'usual'}}">Произведение чисел, взятых по абсолютной величине: <strong>{{ product_number|safe }}</strong></p>
-	<p class="{{'warn' if min_number == '<br>вы не выбрали данную опцию!' else 'usual'}}">Минимальное число среди чисел, взятых по абсолютной величине: <strong>{{ min_number|safe }}</strong></p>
-	<p class="{{'warn' if sorted_number == '<br>вы не выбрали данную опцию!' else 'usual'}}">Сортировка чисел, взятых по абсолютной величине: <strong>{{ sorted_number|safe }}</strong></p>
-	<table border='1'>
-            <caption><strong>Некоторые параметры системы</strong></caption>
-            <tr>
-                <th>№ п/п</th>
-                <th>Параметр</th>
-                <th>Значение</th>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>Операционная система</td>
-                <td>{{ info_platform }}</td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>Описание версии ОС</td>
-                <td>{{ info_sys_description }}</td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td>Версия Python</td>
-                <td>{{ info_python_version }}</td>
-            </tr>
-            <tr>
-                <td>4</td>
-                <td>Имя пользователя UNIX-системы</td>
-                <td>{{ info_username_unix }}</td>
-            </tr>
-    </table>
-	<p><input type='submit' onclick='history.back();' value='Вернуться назад'/></p>
-	
-</div>
-</body>
+	<head>
+		{% block head %}
+		<meta charset='utf-8'>
+		<title>{% block title %}{% endblock %} Обработанные данные</title>
+		<link rel="stylesheet" href="../static/style/style_form.css">
+		<link rel="shortcut icon" href="../static/img/favicon.ico" type="image/x-icon">
+		{% endblock %}
+	</head>
+	<body>
+		<div id='answer'>
+			{% block answer %}
+			<p class='greet'>Привет, <span class='name'><strong><i>{{ name.title() }}!</i></strong></span></p><br>
+			<p>Случайные {{ quantity }} чисел из диапазона [{{ start }}, {{ finish }}]: <strong>{{ random_num }}</strong></p>
+			<p class="{{'warn' if product_number == '<br>вы не выбрали данную опцию!' else 'usual'}}">Произведение чисел, взятых по абсолютной величине: <strong>{{ product_number|safe }}</strong></p>
+			<p class="{{'warn' if min_and_max_number == '<br>вы не выбрали данную опцию!' else 'usual'}}">Минимальное и максимальное значение среди чисел, взятых по абсолютной величине: <strong>{{ min_and_max_number|safe }}</strong></p>
+			<p class="{{'warn' if sorted_number == '<br>вы не выбрали данную опцию!' else 'usual'}}">Сортировка чисел, взятых по абсолютной величине: <strong>{{ sorted_number|safe }}</strong></p>
+			<table border='1'>
+			<caption><strong>Некоторые параметры системы</strong></caption>
+				<tr>
+					<th>№ п/п</th>
+					<th>Параметр</th>
+					<th>Значение</th>
+				</tr>
+				<tr>
+					<td>1</td>
+					<td>Операционная система</td>
+					<td>{{ info_platform }}</td>
+				</tr>
+				<tr>
+					<td>2</td>
+					<td>Описание версии ОС</td>
+					<td>{{ info_sys_description }}</td>
+				</tr>
+				<tr>
+					<td>3</td>
+					<td>Версия Python</td>
+					<td>{{ info_python_version }}</td>
+				</tr>
+				<tr>
+					<td>4</td>
+					<td>Имя пользователя UNIX-системы</td>
+					<td>{{ info_username_unix }}</td>
+				</tr>
+			</table>
+			<p><input type='submit' onclick='history.back();' value='Вернуться назад'/></p>
+			{% endblock %}
+		</div>
+	</body>
 </html>

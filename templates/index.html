@@ -1,28 +1,32 @@
 <!DOCTYPE HTML>
 <html>
-<head>
-<meta charset="utf-8">
-<title>Работа с рандомными числами</title>
-<link rel="stylesheet" href="../static/style/style_index.css">
-<link rel="shortcut icon" href="../static/img/favicon.ico" type="image/x-icon">
-</head>
-<body>
-	<div id="form">
-		<form action="{{ url_for('get_result') }}" method="post" >
-			<p><label><strong>Введите ваше имя: </strong><input type="text" name="user_name" size="30" maxlength="30" placeholder="Иван Петров" required /></label></p>
-			<p>Cгенерировать случайное число из диапазона:</p>
-			<p><label><strong>от: </strong><input type="number" name="number_start" value="1" min="-99999" max="99999" required /></label>
-			<label><strong>до: </strong><input type="number" name="number_finish" value="99" min="-99999" max="99999" required /></label>
-			<label><strong>кол-во: </strong><input type="number" name="number_quantity" min="1" value="1" required /></label></p>
-			<p><label><input type="checkbox" name="remove_repeats" checked />Исключить повторы*</label><br>
-			<p>Выберите необходимые действия*:</p>
-			<p><label><input type="checkbox" name="get_product" />Найти произведение чисел, взятых по абсолютной величине.</label><br>
-			<label><input type="checkbox" name="get_abs_minimum" />Найти минимальное число среди чисел, взятых по абсолютной величине.</label><br>
-			<label><input type="checkbox" name="get_sorted_numbers" />Выполнить сортировку чисел, взятых по абсолютной величине.</label><br></p>
-			<input type="submit" value="Показать результаты" />
-			<input type="reset" value="Очистить форму" />
-			<p id="faq">*Необязательные параметры</p>
+	<head>
+		{% block head %}
+		<meta charset="utf-8">
+		<title>Работа с рандомными числами</title>
+		<link rel="stylesheet" href="../static/style/style_index.css">
+		<link rel="shortcut icon" href="../static/img/favicon.ico" type="image/x-icon">
+	{% endblock %}	
+	</head>
+	<body>
+		<div id="form">
+			{% block form %}
+			<form action="{{ url_for('get_result') }}" method="post" >
+				<p><label><strong>Введите ваше имя: </strong><input type="text" name="user_name" size="30" maxlength="30" placeholder="Иван Петров" required /></label></p>
+				<p>Cгенерировать случайное число из диапазона:</p>
+				<p><label><strong>от: </strong><input type="number" name="number_start" value="1" min="-99999" max="99999" required /></label>
+				<label><strong>до: </strong><input type="number" name="number_finish" value="99" min="-99999" max="99999" required /></label>
+				<label><strong>кол-во: </strong><input type="number" name="number_quantity" min="1" value="1" required /></label></p>
+				<p><label><input type="checkbox" name="remove_repeats" checked />Исключить повторы*</label><br>
+				<p>Выберите необходимые действия*:</p>
+				<p><label><input type="checkbox" name="get_product" />Найти произведение чисел, взятых по абсолютной величине.</label><br>
+				<label><input type="checkbox" name="get_abs_max_and_min" />Найти максимальное и минимальное число среди чисел, взятых по абсолютной величине.</label><br>
+				<label><input type="checkbox" name="get_sorted_numbers" />Выполнить сортировку чисел, взятых по абсолютной величине.</label><br></p>
+				<input type="submit" value="Показать результаты" />
+				<input type="reset" value="Очистить форму" />
+				<p id="faq">*Необязательные параметры</p>
     		</form>
-	</div>
-</body>
+			{% endblock %}
+		</div>
+	</body>
 </html>
