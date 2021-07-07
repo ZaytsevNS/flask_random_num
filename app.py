@@ -29,7 +29,8 @@ def get_result():
         number_quantity = abs(number_start - number_finish)
     
     list_numbers = []
-    def get_random():
+    def get_random() -> str:
+        """ This function returns random numbers """
         if request.form.get('remove_repeats'):
             numbers = random.sample(range(number_start, number_finish + 1), k=number_quantity)
             list_numbers.extend(numbers)
@@ -41,8 +42,8 @@ def get_result():
             numbers_in_line = ', '.join(map(str, numbers))
             return numbers_in_line
             
-
-    def get_product():
+    def get_product() -> int or str:
+        """ This function returns product of random numbers or error """
         product = 1
         if request.form.get('get_product'):
             for i in list_numbers:
@@ -51,14 +52,16 @@ def get_result():
         else:
             return error
         
-    def get_abs_max_and_min():
+    def get_abs_max_and_min() -> str:
+        """ This function returns max and min number from random numbers or error """
         if request.form.get('get_abs_max_and_min'):
             min_num, max_num = min([abs(i) for i in list_numbers]), max([abs(i) for i in list_numbers])
             return f'min = {min_num}, max = {max_num}'
         else:
             return error
     
-    def get_sorted_numbers():
+    def get_sorted_numbers() -> str:
+        """ This function returns sorted random numbers in absolut value or error """
         sorted_list = []
         if request.form.get('get_sorted_numbers'):
             sorted_list.extend(sorted([abs(i) for i in list_numbers]))
